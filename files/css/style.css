@@ -1,0 +1,219 @@
+/* All-in-One Accessibility® Settings Page Styles */
+
+/* Container tweaks */
+#admin_form_wrapper .windowbg {
+    padding: 20px;
+    background-color: #f9faff;
+    border: 1px solid #d0d4db;
+    border-radius: 5px;
+}
+
+/* Label (dt) styling */
+#admin_form_wrapper dl.settings dt {
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1em;
+}
+
+/* Description under labels */
+#admin_form_wrapper dl.settings dt .smalltext {
+    font-size: 0.85em;
+    color: #7f8c8d;
+}
+
+/* Input container (dd) spacing */
+#admin_form_wrapper dl.settings dd {
+    margin-bottom: 16px;
+}
+
+/* Inputs, selects and number fields styling */
+#admin_form_wrapper dl.settings input[type="text"],
+#admin_form_wrapper dl.settings input[type="number"],
+#admin_form_wrapper dl.settings select {
+    width: 250px;
+    padding: 8px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 0.95em;
+    color: #34495e;
+    box-sizing: border-box;
+}
+
+/* Hide the default checkbox */
+#admin_form_wrapper dl.settings input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 50px;
+    height: 26px;
+    background: #ddd;
+    border-radius: 50px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Slider circle */
+#admin_form_wrapper dl.settings input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Checked state */
+#admin_form_wrapper dl.settings input[type="checkbox"]:checked {
+    background: #4facfe;
+}
+
+/* Move the circle when checked */
+#admin_form_wrapper dl.settings input[type="checkbox"]:checked::before {
+    transform: translateX(24px);
+}
+
+
+/* Submit / Save button styling */
+#admin_form_wrapper input.button,
+#admin_form_wrapper input[type="submit"] {
+    background: linear-gradient(135deg, #4facfe, #2b8cff);
+    color: #ffffff !important;
+    border: none;
+    padding: 1px 28px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+
+/* Hover effect */
+#admin_form_wrapper input.button:hover,
+#admin_form_wrapper input[type="submit"]:hover {
+    background: linear-gradient(135deg, #2b8cff, #1f6ed4);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Active (when clicked) */
+#admin_form_wrapper input.button:active,
+#admin_form_wrapper input[type="submit"]:active {
+    background: #1f6ed4;
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled state */
+#admin_form_wrapper input.button:disabled,
+#admin_form_wrapper input[type="submit"]:disabled {
+    background: #bdc3c7;
+    color: #f4f6f7 !important;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Responsive adjustments for narrow screens */
+@media (max-width: 600px) {
+    #admin_form_wrapper dl.settings dt,
+    #admin_form_wrapper dl.settings dd {
+        display: block;
+        width: 100%;
+    }
+
+    #admin_form_wrapper dl.settings input[type="text"],
+    #admin_form_wrapper dl.settings input[type="number"],
+    #admin_form_wrapper dl.settings select {
+        width: 100%;
+    }
+}
+
+/* Optional: Highlight focused form elements */
+#admin_form_wrapper dl.settings input:focus,
+#admin_form_wrapper dl.settings select:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 4px rgba(41, 128, 185, 0.5);
+}
+
+.upgrade-note {
+    font-size: 14px;
+    color: #444;
+    margin: 10px 0;
+}
+.upgrade-note a {
+    color: #0073aa;
+    font-weight: bold;
+    text-decoration: none;
+}
+.upgrade-note a:hover {
+    text-decoration: underline;
+}
+
+/* Reset old SMF block styling */
+.upgrade-container .information.noup {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Upgrade link */
+.upgrade-container .information.noup:last-child {
+    text-align: right;
+    flex: 0 0 auto;
+    margin-left: 20px;
+}
+
+.upgrade-container a {
+    background: #0073aa;
+    color: #fff !important;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s ease-in-out;
+}
+
+.upgrade-container a:hover {
+    background: #005f8c;
+}
+
+/* Mobile stacking */
+@media (max-width: 600px) {
+    .upgrade-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .upgrade-container .information.noup:last-child {
+        text-align: left;
+        margin: 10px 0 0;
+    }
+}
+.all-in-one-accessibility-note{
+    width: 100% !important
+}
+
+.all-in-one-accessibility-note #license_key_msg {
+    text-align: left;
+}
+.all-in-one-accessibility-note #license_key_msg a {
+    background: transparent;
+    color: blue !important;
+    padding: 0;
+}
+

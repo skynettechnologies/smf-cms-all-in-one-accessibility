@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<id>skynettechnologies:All in One Accessibility®</id>
+
+	<file name="$languagedir/Modifications.english-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+//All in One Accessibility®
+$txt['mods_cat_allinoneaccessibility'] = 'All in One Accessibility® Settings';
+$txt['aioa_note'] = 'NOTE: Currently, All in One Accessibility is dedicated to enhancing accessibility specifically for websites and online stores.';
+$txt['aioa_upgrade_msg'] = 'Upgrade notice: Please upgrade to the paid version of All in One Accessibility® Pro.';
+$txt['color'] = 'Hex Color Code:';
+$txt['is_widget_custom_position'] = 'Enable precise accessibility widget icon position:';
+$txt['position'] = 'Where would you like to place the accessibility icon on your site?';
+$txt['aioa_custom_position_horizontal'] = 'Custom Position Horizontal';
+$txt['aioa_custom_position_horizontal_type'] = 'Horizontal Position Type';
+$txt['aioa_custom_position_vertical'] = 'Custom Position Vertical';
+$txt['aioa_custom_position_vertical_type'] = 'Vertical Position Type';
+$txt['widget_size'] = 'Select Widget Size:';
+$txt['icon_type'] = 'Select Icon Type:';
+$txt['is_widget_custom_size'] = 'Enable icon custom size:';
+$txt['widget_icon_size_custom'] = 'Select exact icon size:';
+$txt['icon_size'] = 'Select icon size for Desktop:';
+]]></add>
+		</operation>
+	</file>
+
+	<file name="$languagedir/Modifications.greek-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+// All in One Accessibility®
+$txt['mods_cat_allinoneaccessibility'] = 'Ρυθμίσεις All in One Accessibility®';
+$txt['aioa_note'] = 'ΣΗΜΕΙΩΣΗ: Αυτή τη στιγμή, το All in One Accessibility είναι αφιερωμένο στη βελτίωση της προσβασιμότητας ειδικά για ιστοσελίδες και ηλεκτρονικά καταστήματα.';
+$txt['aioa_upgrade_msg'] = 'Ειδοποίηση αναβάθμισης: Παρακαλώ αναβαθμίστε στην επί πληρωμή έκδοση All in One Accessibility® Pro.';
+$txt['color'] = 'Κωδικός Χρώματος Hex:';
+$txt['is_widget_custom_position'] = 'Ενεργοποίηση ακριβούς θέσης εικονιδίου πρόσβασης:';
+$txt['position'] = 'Πού θέλετε να τοποθετήσετε το εικονίδιο πρόσβασης στην ιστοσελίδα σας;';
+$txt['aioa_custom_position_horizontal'] = 'Προσαρμοσμένη Οριζόντια Θέση';
+$txt['aioa_custom_position_horizontal_type'] = 'Τύπος Οριζόντιας Θέσης';
+$txt['aioa_custom_position_vertical'] = 'Προσαρμοσμένη Κατακόρυφη Θέση';
+$txt['aioa_custom_position_vertical_type'] = 'Τύπος Κατακόρυφης Θέσης';
+$txt['widget_size'] = 'Επιλέξτε Μέγεθος Widget:';
+$txt['icon_type'] = 'Επιλέξτε Τύπο Εικονιδίου:';
+$txt['is_widget_custom_size'] = 'Ενεργοποίηση προσαρμοσμένου μεγέθους εικονιδίου:';
+$txt['widget_icon_size_custom'] = 'Επιλέξτε ακριβές μέγεθος εικονιδίου:';
+$txt['icon_size'] = 'Επιλέξτε μέγεθος εικονιδίου για υπολογιστή:';
+]]></add>
+		</operation>
+	</file>
+
+	<file name="$languagedir/Modifications.italian-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+//All in One Accessibility®
+$txt['mods_cat_allinoneaccessibility'] = 'Impostazioni All in One Accessibility®';
+$txt['aioa_note'] = 'NOTA: Attualmente, All in One Accessibility è dedicato a migliorare l’accessibilità specificamente per siti web e negozi online.';
+$txt['aioa_upgrade_msg'] = 'Avviso di aggiornamento: Si prega di eseguire l’aggiornamento alla versione a pagamento di All in One Accessibility® Pro.';
+$txt['color'] = 'Codice Colore Hex:';
+$txt['is_widget_custom_position'] = 'Abilita posizione precisa dell’icona del widget di accessibilità:';
+$txt['position'] = 'Dove vuoi posizionare l’icona di accessibilità sul tuo sito?';
+$txt['aioa_custom_position_horizontal'] = 'Posizione Orizzontale Personalizzata';
+$txt['aioa_custom_position_horizontal_type'] = 'Tipo di Posizione Orizzontale';
+$txt['aioa_custom_position_vertical'] = 'Posizione Verticale Personalizzata';
+$txt['aioa_custom_position_vertical_type'] = 'Tipo di Posizione Verticale';
+$txt['widget_size'] = 'Seleziona Dimensione Widget:';
+$txt['icon_type'] = 'Seleziona Tipo di Icona:';
+$txt['is_widget_custom_size'] = 'Abilita dimensione personalizzata dell’icona:';
+$txt['widget_icon_size_custom'] = 'Seleziona dimensione esatta dell’icona:';
+$txt['icon_size'] = 'Seleziona dimensione dell’icona per Desktop:';
+]]></add>
+		</operation>
+	</file>
+
+</modification>

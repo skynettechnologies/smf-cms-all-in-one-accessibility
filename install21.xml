@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+    <id>skynettechnologies:All in One Accessibility®</id>
+
+    <file name="$sourcedir/Load.php">
+        <operation>
+            <search position="before"><![CDATA[
+	// Some basic information...
+	if (!isset($context['html_headers']))
+		$context['html_headers'] = '';
+]]></search>
+            <add><![CDATA[
+	// EU cookie mod
+	if (!$user_info['is_admin'])
+		$context['html_headers'] .= '
+	<script id="aioa-adawidget" src="https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=#420083&token=&position=bottom_right" async="true"></script>';
+]]></add>
+        </operation>
+    </file>
+
+    <file name="$sourcedir/Admin.php">
+        <operation>
+            <search position="before"><![CDATA[
+						// Note the comma!! The setting with automatically appear with the first mod to be added.]]></search>
+            <add><![CDATA[
+						'aioa' => array($txt['mods_cat_allinoneaccessibility']),]]></add>
+        </operation>
+    </file>
+
+    <file name="$sourcedir/ManageSettings.php">
+        <operation>
+            <search position="before"><![CDATA[
+		// Mod authors, once again, if you have a whole section to add do it AFTER this line, and keep a comma at the end.]]></search>
+            <add><![CDATA[
+		'aioa' => 'ModifyAIOASettings',]]></add>
+        </operation>
+        <operation>
+            <search position="end" />
+            <add><![CDATA[
+// All in One Accessibility® mod
+function ModifyAIOASettings($return_config = false)
+{
+    global $txt, $scripturl, $context, $settings, $sc, $modSettings;
+
+    // Load language strings
+    loadLanguage('Modifications');
+
+    $config_vars = array(
+        // Extended settings
+        array('desc', 'aioa_note',
+            'label' => '<b>NOTE:</b> Currently, All in One Accessibility is dedicated to enhancing accessibility specifically for websites and online stores.'
+        ),
+        array(
+            'desc',
+            'aioa_upgrade_msg',
+            'label' => '<p id="license_key_msg" class="upgrade-note">
+                    Please <a href="https://ada.skynettechnologies.us/trial-subscription?website=" target="_blank">Upgrade</a>
+                    to paid version of All in One Accessibility® Pro.
+                </p>'
+        ),
+        array('text', 'color', 'size' => 7, 'subtext' => 'You can customize the ADA Widget color. For example: FF5733'),
+        array('check', 'is_widget_custom_position'),
+
+        // Custom Widget Position Radios
+        array('select', 'position', array(
+            'top_left' => 'Top Left',
+            'top_center' => 'Top Center',
+            'top_right' => 'Top Right',
+            'bottom_left' => 'Bottom Left',
+            'bottom_center' => 'Bottom Center',
+            'bottom_right' => 'Bottom Right',
+            'middle_left' => 'Middle Left',
+            'middle_right' => 'Middle Right',
+        )),
+
+        // Custom Position Options
+        array('int', 'aioa_custom_position_horizontal', 'min' => 0, 'max' => 250),
+        array('select', 'aioa_custom_position_horizontal_type', array('left' => 'To the Left', 'right' => 'To the Right')),
+        array('int', 'aioa_custom_position_vertical', 'min' => 0, 'max' => 250),
+        array('select', 'aioa_custom_position_vertical_type', array('top' => 'To the Top', 'bottom' => 'To the Bottom')),
+
+        array('select', 'widget_size', 'subtext' => 'It only works on desktop view.', array(
+            '0' => 'Regular Size',
+            '1' => 'Oversize',
+        )),
+        array('select', 'icon_type', array(
+            'aioa-icon-type-1'  => 'Type 1',
+            'aioa-icon-type-2'  => 'Type 2',
+            'aioa-icon-type-3'  => 'Type 3',
+            'aioa-icon-type-4'  => 'Type 4',
+            'aioa-icon-type-5'  => 'Type 5',
+            'aioa-icon-type-6'  => 'Type 6',
+            'aioa-icon-type-7'  => 'Type 7',
+            'aioa-icon-type-8'  => 'Type 8',
+            'aioa-icon-type-9'  => 'Type 9',
+            'aioa-icon-type-10' => 'Type 10',
+            'aioa-icon-type-11' => 'Type 11',
+            'aioa-icon-type-12' => 'Type 12',
+            'aioa-icon-type-13' => 'Type 13',
+            'aioa-icon-type-14' => 'Type 14',
+            'aioa-icon-type-15' => 'Type 15',
+            'aioa-icon-type-16' => 'Type 16',
+            'aioa-icon-type-17' => 'Type 17',
+            'aioa-icon-type-18' => 'Type 18',
+            'aioa-icon-type-19' => 'Type 19',
+            'aioa-icon-type-20' => 'Type 20',
+            'aioa-icon-type-21' => 'Type 21',
+            'aioa-icon-type-22' => 'Type 22',
+            'aioa-icon-type-23' => 'Type 23',
+            'aioa-icon-type-24' => 'Type 24',
+            'aioa-icon-type-25' => 'Type 25',
+            'aioa-icon-type-26' => 'Type 26',
+            'aioa-icon-type-27' => 'Type 27',
+            'aioa-icon-type-28' => 'Type 28',
+            'aioa-icon-type-29' => 'Type 29',
+        )),
+        array('check', 'is_widget_custom_size'),
+        array('int', 'widget_icon_size_custom', 'min' => 20, 'max' => 150, 'subtext' => '20 - 150px are permitted values'),
+        array('select', 'icon_size', array(
+            'aioa-big-icon' => 'Big',
+            'aioa-medium-icon' => 'Medium',
+            'aioa-default-icon' => 'Default',
+            'aioa-small-icon' => 'Small',
+            'aioa-extra-small-icon' => 'Extra Small',
+        )),
+    );
+
+    if ($return_config)
+        return $config_vars;
+
+    if (isset($_GET['save'])) {
+        checkSession();
+        saveDBSettings($config_vars);
+        writeLog();
+        redirectexit('action=admin;area=modsettings;sa=aioa');
+    }
+
+    loadJavaScriptFile('allinoneaccessibility.js', array('defer' => true, 'default_theme' => true));
+    loadCSSFile('style.css', array('defer' => true));
+
+    $context['post_url'] = $scripturl . '?action=admin;area=modsettings;save;sa=aioa';
+    $context['settings_title'] = $txt['mods_cat_allinoneaccessibility'];
+
+    prepareDBSettingContext($config_vars);
+}
+]]></add>
+        </operation>
+    </file>
+
+    <file name="$themedir/index.template.php">
+        <operation>
+            <search position="before"><![CDATA[function template_html_below()
+{
+	global $context, $settings, $options, $scripturl, $txt, $modSettings;]]></search>
+            <add><![CDATA[
+
+	// EU Cookie mod
+	global $user_info;
+	if (!$user_info['is_admin'])
+		echo 'All in One Accessibility Widget';
+]]></add>
+        </operation>
+    </file>
+
+    <file name="$themedir/css/index.css" error="skip">
+        <operation>
+            <search position="end" />
+            <add><![CDATA[
+
+.cookie_wrap
+{
+	position: fixed;
+	width: 100%;
+	bottom: 20px;
+	text-align: center;
+	z-index: 9999;
+	visibility: hidden;
+}
+.cookie_wrap a:link, .cookie_wrap a:visited
+{
+	text-decoration: none;
+}
+.cookie_wrap a:hover
+{
+	text-decoration: underline;
+	cursor: pointer;
+}
+.cookie_notice
+{
+	display: inline-block;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 12px;
+}
+#cookie_button
+{
+	background: #346;
+	color: #fff;
+	font: bold 11px arial;
+	padding: 3px 12px;
+	border-radius: 3px;
+}
+]]></add>
+        </operation>
+    </file>
+
+    <file name="$languagedir/Modifications.english.php">
+        <operation>
+            <search position="end" />
+            <add><![CDATA[
+// All in One Accessibility® mod
+$txt['mods_cat_allinoneaccessibility'] = 'All in One Accessibility® Settings';
+$txt['aioa_note'] = 'NOTE: Currently, All in One Accessibility is dedicated to enhancing accessibility specifically for websites and online stores.';
+$txt['aioa_upgrade_msg'] = 'Upgrade notice: Please upgrade to the paid version of All in One Accessibility® Pro.';
+$txt['color'] = 'Hex Color Code:';
+$txt['is_widget_custom_position'] = 'Enable precise accessibility widget icon position:';
+$txt['position'] = 'Where would you like to place the accessibility icon on your site?';
+$txt['aioa_custom_position_horizontal'] = 'Custom Position Horizontal';
+$txt['aioa_custom_position_horizontal_type'] = 'Horizontal Position Type';
+$txt['aioa_custom_position_vertical'] = 'Custom Position Vertical';
+$txt['aioa_custom_position_vertical_type'] = 'Vertical Position Type';
+$txt['widget_size'] = 'Select Widget Size:';
+$txt['icon_type'] = 'Select Icon Type:';
+$txt['is_widget_custom_size'] = 'Enable icon custom size:';
+$txt['widget_icon_size_custom'] = 'Select exact icon size:';
+$txt['icon_size'] = 'Select icon size for Desktop:';
+]]></add>
+        </operation>
+    </file>
+
+    <file name="$languagedir/Modifications.greek.php" error="skip">
+        <operation>
+            <search position="end" />
+            <add><![CDATA[
+// All in One Accessibility®
+$txt['mods_cat_allinoneaccessibility'] = 'Ρυθμίσεις All in One Accessibility®';
+$txt['aioa_note'] = 'ΣΗΜΕΙΩΣΗ: Αυτή τη στιγμή, το All in One Accessibility είναι αφιερωμένο στη βελτίωση της προσβασιμότητας ειδικά για ιστοσελίδες και ηλεκτρονικά καταστήματα.';
+$txt['aioa_upgrade_msg'] = 'Ειδοποίηση αναβάθμισης: Παρακαλώ αναβαθμίστε στην επί πληρωμή έκδοση All in One Accessibility® Pro.';
+$txt['color'] = 'Κωδικός Χρώματος Hex:';
+$txt['is_widget_custom_position'] = 'Ενεργοποίηση ακριβούς θέσης εικονιδίου πρόσβασης:';
+$txt['position'] = 'Πού θέλετε να τοποθετήσετε το εικονίδιο πρόσβασης στην ιστοσελίδα σας;';
+$txt['aioa_custom_position_horizontal'] = 'Προσαρμοσμένη Οριζόντια Θέση';
+$txt['aioa_custom_position_horizontal_type'] = 'Τύπος Οριζόντιας Θέσης';
+$txt['aioa_custom_position_vertical'] = 'Προσαρμοσμένη Κατακόρυφη Θέση';
+$txt['aioa_custom_position_vertical_type'] = 'Τύπος Κατακόρυφης Θέσης';
+$txt['widget_size'] = 'Επιλέξτε Μέγεθος Widget:';
+$txt['icon_type'] = 'Επιλέξτε Τύπο Εικονιδίου:';
+$txt['is_widget_custom_size'] = 'Ενεργοποίηση προσαρμοσμένου μεγέθους εικονιδίου:';
+$txt['widget_icon_size_custom'] = 'Επιλέξτε ακριβές μέγεθος εικονιδίου:';
+$txt['icon_size'] = 'Επιλέξτε μέγεθος εικονιδίου για υπολογιστή:';
+]]></add>
+        </operation>
+    </file>
+
+    <file name="$languagedir/Modifications.italian.php" error="skip">
+        <operation>
+            <search position="end" />
+            <add><![CDATA[
+//All in One Accessibility®
+$txt['mods_cat_allinoneaccessibility'] = 'Impostazioni All in One Accessibility®';
+$txt['aioa_note'] = 'NOTA: Attualmente, All in One Accessibility è dedicato a migliorare l’accessibilità specificamente per siti web e negozi online.';
+$txt['aioa_upgrade_msg'] = 'Avviso di aggiornamento: Si prega di eseguire l’aggiornamento alla versione a pagamento di All in One Accessibility® Pro.';
+$txt['color'] = 'Codice Colore Hex:';
+$txt['is_widget_custom_position'] = 'Abilita posizione precisa dell’icona del widget di accessibilità:';
+$txt['position'] = 'Dove vuoi posizionare l’icona di accessibilità sul tuo sito?';
+$txt['aioa_custom_position_horizontal'] = 'Posizione Orizzontale Personalizzata';
+$txt['aioa_custom_position_horizontal_type'] = 'Tipo di Posizione Orizzontale';
+$txt['aioa_custom_position_vertical'] = 'Posizione Verticale Personalizzata';
+$txt['aioa_custom_position_vertical_type'] = 'Tipo di Posizione Verticale';
+$txt['widget_size'] = 'Seleziona Dimensione Widget:';
+$txt['icon_type'] = 'Seleziona Tipo di Icona:';
+$txt['is_widget_custom_size'] = 'Abilita dimensione personalizzata dell’icona:';
+$txt['widget_icon_size_custom'] = 'Seleziona dimensione esatta dell’icona:';
+$txt['icon_size'] = 'Seleziona dimensione dell’icona per Desktop:';
+]]></add>
+        </operation>
+    </file>
+
+</modification>
