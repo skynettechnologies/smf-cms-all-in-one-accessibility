@@ -5,11 +5,6 @@
 	<name>All in One Accessibility®</name>
 	<version>1.0</version>
 	<type>modification</type>
-	<author>Skynet Technologies USA LLC</author>
-	<website>https://www.skynettechnologies.com</website>
-	<description><![CDATA[
-		Quick Web Accessibility Implementation with All In One Accessibility!
-	]]></description>
 
 	<!-- Installation for SMF 2.0 -->
 	<install for="2.0 - 2.0.99">
@@ -26,7 +21,6 @@
 		<modification reverse="true">install.xml</modification>
 		<modification reverse="true">install-utf8.xml</modification>
 		<!-- Remove files -->
-		<remove-file name="$sourcedir/ManageAIOA.php" />
 		<remove-file name="$themedir/css/style.css" />
 		<remove-file name="$themedir/scripts/allinoneaccessibility.js" />
 	</uninstall>
@@ -34,6 +28,7 @@
 	<!-- Installation for SMF 2.1.6 -->
 	<install for="2.1 - 2.1.99">
 		<modification>install21.xml</modification>
+		<modification>install-utf8.xml</modification>
 		<!-- Copy main source file -->
 		<require-file name="files/css/style.css" destination="$themedir/css" />
 		<require-file name="files/scripts/allinoneaccessibility.js" destination="$themedir/scripts" />
@@ -43,6 +38,7 @@
 
 	<uninstall for="2.1 - 2.1.99">
 		<modification reverse="true">install21.xml</modification>
+		<modification reverse="true">install-utf8.xml</modification>
 		<!-- Remove files -->
 		<remove-file name="$themedir/css/style.css" />
 		<remove-file name="$themedir/scripts/allinoneaccessibility.js" />
