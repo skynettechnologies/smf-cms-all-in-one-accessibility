@@ -1,12 +1,46 @@
 # All in One Accessibility®: SMF(Simple Machine Forum)CMS Package
 
+## Enhance the browsing experience of your SMF forum users with the All in One Accessibility®.
+This extension adds a customizable accessibility toolbar that helps visitors with different abilities to navigate and interact with your site more easily.
+- Note: This extension requires JavaScript enabled in the user’s browser to function properly.
+
 ## Enhance Your Website's Accessibility with All in One Accessibility®
 
 **Did you know?** Your website's accessibility can make or break your audience's experience. With the **All in One Accessibility AI Free Accessibility Widget**, you can instantly boost your site's inclusivity and support over **140+ languages**! Experience the power of **23 essential features** in our free version and take the first step towards creating a better web for everyone.
 
+## Features (Free Version – 23 Essential features)
+This widget provides 23 essential accessibility enhancements to improve the user experience of your forum:
+1. Auto-Detect Language = It automatically identifies the browser language and adjusts the All in One Accessibility widget language accordingly, delivering a seamless experience for users in their native language without requiring manual adjustments.
+2. Multi-Language = Select your preferred language from 140+ available languages or keep the default «auto detect» for your accessibility widget.
+3. Accessibility Statement = Accessibility statement helps your users to understand the current status of your website's accessibility as well as any accessibility related efforts your business is doing currently.
+4. Adjust Widget Size = User can enable or disable Oversize widget for your website according to their preference for desktop and mobile.
+5. Custom Widget Colors = Customize widget color according to website's look and feel.
+6. Custom Widget Icon = Select accessibility widget icon for your website from 29 available options.
+7. Reading Mask = The reading mask improves concentration on specific content. By putting up reading mask, it will highlight the page elements which are underneath the cursor.
+8. Skip to Menu = It will provide a quick access to the main menu on the page.
+9. Skip to Content = Puts a webpage in a text only, reading-focused mode.
+10. Skip to Footer = It will allow quick access to the footer on the page.
+11. Content Scaling = It allows users to scale visual content including images, text, graphs, illustrations, etc. to zoom in and zoom out.
+12. Readable Fonts = By clicking on this, it will replace any fancy fonts with simple readable fonts.
+13. Highlight Title = It will highlight the titles and help users and assistive technology to understand the structure of the page and its components.
+14. Highlight Links = It focuses on links, buttons, and other action elements in high contrast colors which are easy to recognize. Also, highlight clickable components for better and easier website usability and accessibility.
+15. Text Mangnifier = Text Magnifier works as a virtual magnifying glass which allows to enlarge the selected text area.
+16. Adjust Font Sizing = Font size can be adjustable according to users requirements.
+17. Adjust Line Height = Get more comfortable spacing for all on-site text with the Adjust Adjust Line Height option.
+18. Adjust Letter Spacing = Text and line spacing can be modified, thus, dyslexic, and visually impaired users get benefit. All in One Accessibility® offers a significant level of adjustment for a readable and personalized experience.
+19. Align Left = For more personalized and accessible experience, it will allow to change the alignment of the text at left.
+20. Align Center = For more personalized and accessible experience, it will allow to change the alignment of the text at center.
+21. Align Right = For more personalized and accessible experience, it will allow to change the alignment of the text at right.
+22. High Contrast = Increase the contrast of all website elements with a High Contrast color theme. It will sharply contrast all elements, texts, buttons, and form fields with one click.
+23. Hide Images = By enabling this feature, it will hide all images of site and displays the text only. 
+
+
 ### Why All in One Accessibility®?
 
-This lightweight and flexible widget is designed to improve your website’s compliance with **international accessibility standards**, including:
+This lightweight and flexible widget is designed to support better user experience by referencing well-known international accessibility standards and laws.  
+
+⚠️ Note: Installing this MOD **does not guarantee compliance** with these standards or laws.  
+It provides assistive tools to improve usability and accessibility for your forum visitors, but it is **not a substitute for full accessibility testing or remediation**.
 
 ### **International Standards**
 
@@ -101,6 +135,7 @@ This lightweight and flexible widget is designed to improve your website’s com
 ### **United Arab Emirates**
 - **UAE Disability Act (Federal Law No. 29 of 2006)**
 
+
 For more details on supported accessibility laws and standards, visit  
 **[All in One Accessibility Supported Standards](https://www.skynettechnologies.com/accessibility-standards)**
 
@@ -132,7 +167,7 @@ English (USA), English (UK), English (Australian), English (Canadian), English (
 
 ### Prerequisites
 
-- SMF version 2.1x
+- Compatibale with SMF 2.0 and up versions
 
 ## Installation
 
@@ -140,7 +175,7 @@ English (USA), English (UK), English (Australian), English (Canadian), English (
 
 1. Log in to your SMF Admin Panel.
 2. Navigate to Admin → Package Manager → Add Packages.
-3. Upload the file AllinOneAccessibility.zip.
+3. Upload the file zip file.
 4. After uploading, go to Browse Packages – you should now see **All in One Accessibility®** listed.
 5. Click Install to complete the setup.
 

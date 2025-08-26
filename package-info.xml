@@ -3,45 +3,27 @@
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
 	<id>skynettechnologies:allinoneaccessibility</id>
 	<name>All in One Accessibility®</name>
-	<version>1.0</version>
+	<version>1.0.2</version>
 	<type>modification</type>
 
-	<!-- Installation for SMF 2.0 -->
-	<install for="2.0 - 2.0.99">
-		<modification>install.xml</modification>
-		<modification>install-utf8.xml</modification>
-		<!-- Copy main source file -->
-		<require-file name="files/css/style.css" destination="$themedir/css" />
-		<require-file name="files/scripts/allinoneaccessibility.js" destination="$themedir/scripts" />
-		<!-- Redirect to settings page after install -->
-		<redirect url="index.php?action=admin;area=modsettings;sa=aioa" timeout="5000">redirect.txt</redirect>
-	</install>
-
-	<uninstall for="2.0 - 2.0.99">
-		<modification reverse="true">install.xml</modification>
-		<modification reverse="true">install-utf8.xml</modification>
-		<!-- Remove files -->
-		<remove-file name="$themedir/css/style.css" />
-		<remove-file name="$themedir/scripts/allinoneaccessibility.js" />
-	</uninstall>
-
-	<!-- Installation for SMF 2.1.6 -->
-	<install for="2.1 - 2.1.99">
+	<install for="2.0 - 2.1.99">
 		<modification>install21.xml</modification>
-		<modification>install-utf8.xml</modification>
 		<!-- Copy main source file -->
+		<require-file name="files/Sources/AllinOneAccessibility.php" destination="$sourcedir" />
 		<require-file name="files/css/style.css" destination="$themedir/css" />
 		<require-file name="files/scripts/allinoneaccessibility.js" destination="$themedir/scripts" />
-		<!-- Redirect to settings page after install -->
+		<require-file name="files/languages/Modifications.english.php" destination="$themedir/languages" />
+
 		<redirect url="index.php?action=admin;area=modsettings;sa=aioa" timeout="5000">redirect.txt</redirect>
 	</install>
 
-	<uninstall for="2.1 - 2.1.99">
+	<uninstall for="2.0 - 2.1.99">
 		<modification reverse="true">install21.xml</modification>
-		<modification reverse="true">install-utf8.xml</modification>
 		<!-- Remove files -->
+		<remove-file name="$sourcedir/AllinOneAccessibility.php" />
 		<remove-file name="$themedir/css/style.css" />
 		<remove-file name="$themedir/scripts/allinoneaccessibility.js" />
+		<remove-file name="$themedir/languages/Modifications.english.php" />
 	</uninstall>
 
 </package-info>
